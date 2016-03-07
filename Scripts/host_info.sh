@@ -6,5 +6,5 @@
 # Bonjour (zero-conf) name
 BJRNAME=`scutil --get LocalHostName`
 echo "hitp-enabled: YES"
-echo "hitp-title: Nom : $BJRNAME"
+echo "hitp-title: Nom de l'ordinateur : $BJRNAME"
 echo "hitp-state: none"
