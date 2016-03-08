@@ -5,15 +5,17 @@
 
 DISKUSE=`df / | awk '{print $5}' | grep %`
 WARNSPACE=`df / | awk '{print $5}' | grep % |  sed 's/%//g'`
-DISKSPACE=$((100 - WARNSPACE))
+DISKSPACE=$((100 - $WARNSPACE))
+ERRORSIZE=90
+WARNSIZE=80
 
 echo "hitp-enabled: YES"
-echo "hitp-title: Stockage disponible : $DISKSPACE""%"
+echo "hitp-title: Stockage disponible : $DISKSPACE%"
 
-if [[ "$WARNSPACE" > 90 ]]; then
+if (( "$WARNSPACE" > "$ERRORSIZE" )); then
   echo "hitp-state: error"
   exit 0
-elif [[ "$WARNSPACE" > 80 ]]; then
+elif (( "$WARNSPACE" > "$WARNSIZE" )); then
   echo "hitp-state: warning"
   exit 0
 else
