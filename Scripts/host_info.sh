@@ -5,6 +5,7 @@
 
 # Bonjour (zero-conf) name
 BJRNAME=`scutil --get LocalHostName`
+SERIAL=`system_profiler SPHardwareDataType | grep Serial | awk '{print $4}'`
 echo "hitp-enabled: YES"
-echo "hitp-title: Nom de l'ordinateur : $BJRNAME"
+echo "hitp-title: $BJRNAME   —   $SERIAL"
 echo "hitp-state: none"

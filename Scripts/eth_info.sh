@@ -14,6 +14,7 @@ done
 
 if [ -z $ETHINT ]; then
   echo "hitp-enabled: NO"
+  echo "hitp-hidden: YES"
   echo "hitp-title: Aucun matériel Ethernet"
   echo "hitp-state: unavailable"
   exit 0
@@ -23,10 +24,12 @@ IP_ETH=`ipconfig getifaddr $ETHINT`
 
 if  [ ! -z $IP_ETH ]; then
 echo "hitp-enabled: YES"
+echo "hitp-hidden: NO"
 echo "hitp-title: IP Ethernet : $IP_ETH"
 echo "hitp-state: ok"
 else
   echo "hitp-enabled: YES"
+  echo "hitp-hidden: NO"
   echo "hitp-title: Aucune adresse Ethernet"
   echo "hitp-state: warning"
 fi
