@@ -16,7 +16,7 @@ if [ -z $ETHINT ]; then
   echo "hitp-enabled: NO"
   echo "hitp-hidden: YES"
   echo "hitp-title: Aucun matériel Ethernet"
-  echo "hitp-state: unavailable"
+  echo "hitp-state: none"
   exit 0
 fi
 
